@@ -31,4 +31,18 @@
     <string name="title_activity_map">MapActivity</string>
     <string name="center_ubication">Centrar ubicación</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="register_your_car">Registra tu vehiculo</string>
+    <string name="model">Modelo</string>
+    <string name="brand">Marca</string>
+    <string name="identificator">Placas</string>
+    <string name="color">Color</string>
+    <string name="cancel">Cancelar</string>
+    <string name="register_finish">Concluir</string>
+    <string name="full_name">Nombre completo</string>
+    <string name="full_lastname">Apellidos</string>
+    <string name="phone">Telefono</string>
+    <string name="continuar">Continuar</string>
+    <string name="ic_loc">ic_loc</string>
+    <string name="accept_service">Confirmar servicio</string>
+    <string name="ic_myloc">ic_myloc</string>
 </resources>

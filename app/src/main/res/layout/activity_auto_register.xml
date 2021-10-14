@@ -22,7 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registra tu vehiculo"
+            android:text="@string/register_your_car"
             android:fontFamily="sans-serif-black"
             android:textStyle="bold"
             android:layout_margin="10dp"
@@ -32,7 +32,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Modelo"
+            android:hint="@string/model"
             android:layout_margin="10dp"
             app:boxBackgroundMode="outline"
             app:hintTextColor="@color/white"
@@ -54,7 +54,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Marca"
+            android:hint="@string/brand"
             android:layout_margin="10dp"
             app:boxBackgroundMode="outline"
             app:hintTextColor="@color/white"
@@ -78,7 +78,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Placas"
+            android:hint="@string/identificator"
             android:layout_margin="10dp"
             app:boxBackgroundMode="outline"
             app:hintTextColor="@color/white"
@@ -100,7 +100,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Color"
+            android:hint="@string/color"
             android:layout_margin="10dp"
             app:boxBackgroundMode="outline"
             app:hintTextColor="@color/white"
@@ -131,7 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="Cancelar"
+                android:text="@string/cancel"
                 android:layout_margin="10dp"
                 android:textSize="20sp"
                 android:padding="15dp"
@@ -140,7 +140,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Concluir"
+                android:text="@string/register_finish"
                 android:layout_margin="10dp"
                 android:textSize="20sp"
                 android:padding="15dp"

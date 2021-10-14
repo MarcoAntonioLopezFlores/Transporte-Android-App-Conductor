@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/drawable-v24/ic_find_users.xml" value="0.1" />
+        <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/drawable-v24/ic_location.xml" value="0.1" />
+        <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/drawable-v24/ic_menu_send.xml" value="0.1" />
         <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/drawable/ic_menu_camera.xml" value="0.1125" />
         <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/layout/activity_auto_register.xml" value="0.18" />
         <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/layout/activity_main.xml" value="0.24960127591706538" />
@@ -17,7 +20,7 @@
         <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
         <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/layout/fragment_map.xml" value="0.1" />
-        <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/layout/fragment_maps.xml" value="0.1" />
+        <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/layout/fragment_maps.xml" value="0.2" />
         <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/layout/fragment_second.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
         <entry key="..\:/Users/mnmar/OneDrive/Escritorio/UTEZ/Cuatrimestre 10/Movil/ExpressTaxiConductor/app/src/main/res/layout/nav_header_navigation_drawer.xml" value="0.1" />

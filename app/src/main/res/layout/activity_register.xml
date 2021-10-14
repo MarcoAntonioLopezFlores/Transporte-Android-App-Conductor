@@ -32,7 +32,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre completo"
+            android:hint="@string/full_name"
             android:layout_margin="10dp"
             app:boxBackgroundMode="outline"
             app:hintTextColor="@color/white"
@@ -54,7 +54,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Apellidos"
+            android:hint="@string/full_lastname"
             android:layout_margin="10dp"
             app:boxBackgroundMode="outline"
             app:hintTextColor="@color/white"
@@ -100,7 +100,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Telefono"
+            android:hint="@string/phone"
             android:layout_margin="10dp"
             app:boxBackgroundMode="outline"
             app:hintTextColor="@color/white"
@@ -173,7 +173,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:text="Cancelar"
+                android:text="@string/cancel"
                 android:layout_margin="10dp"
                 android:textSize="20sp"
                 android:padding="15dp"
@@ -182,7 +182,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Continuar"
+                android:text="@string/continuar"
                 android:layout_margin="10dp"
                 android:textSize="20sp"
                 android:padding="15dp"
