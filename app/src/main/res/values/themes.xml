@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ExpressTaxiConductor" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.ExpressTaxiConductor" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primaryLightColor</item>
         <item name="colorPrimaryVariant">@color/primaryColor</item>
@@ -19,16 +19,8 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.ExpressTaxiConductor.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.ExpressTaxiConductor.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="Theme.ExpressTaxiConductor.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
+    <style name="Theme.ExpressTaxiConductor.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="Theme.ExpressTaxiConductor.NoActionBar.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="Theme.ExpressTaxiConductor.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.ExpressTaxiConductor.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

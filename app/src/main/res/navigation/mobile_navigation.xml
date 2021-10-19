@@ -11,4 +11,27 @@
         android:label="Inicio"
         tools:layout="@layout/fragment_maps" />
 
+    <fragment
+        android:id="@+id/chatServiceFragment"
+        android:name="com.app.expresstaxiconductor.fragments.ChatServiceFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat_service" >
+        <action
+            android:id="@+id/action_chatServiceFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+    android:id="@+id/detailsFragment"
+    android:name="com.app.expresstaxiconductor.fragments.DetailsDriverFragment"
+    android:label="Detalles servicio"
+    tools:layout="@layout/fragment_details_driver" >
+        <action
+            android:id="@+id/action_detailsFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+
+        <action
+            android:id="@+id/action_detailsFragment_to_chatServiceFragment"
+            app:destination="@id/chatServiceFragment" />
+    </fragment>
+
 </navigation>

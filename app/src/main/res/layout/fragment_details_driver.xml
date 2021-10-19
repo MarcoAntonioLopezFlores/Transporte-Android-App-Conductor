@@ -1,0 +1,183 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.DetailsDriverFragment">
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+
+            android:textSize="25sp"
+            android:gravity="start"
+            android:text="Detalles del cliente"
+            android:id="@+id/txtTitleDetailsDriver"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:src="@mipmap/ic_launcher_round"
+                android:id="@+id/imgCustomer"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_margin="5dp"
+                android:layout_height="match_parent"
+                android:background="@color/primaryColor"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_weight="5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:text="Marco"
+                    android:id="@+id/txtNameCustomer"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:text="Lopez"
+                    android:id="@+id/txtLastnameCustomer"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:id="@+id/containerBtnChatService"
+                android:layout_weight="6"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:iconGravity="textTop"
+                    app:icon="@drawable/ic_menu_send"
+                    android:text="Chat"
+                    android:visibility="visible"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:textSize="10sp"
+                    android:id="@+id/btnChatService"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_height="3dp"
+            android:background="@color/primaryColor"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginBottom="5dp"
+                android:textSize="25sp"
+                android:gravity="start"
+                android:text="Detalles del viaje"
+                android:id="@+id/txtTitleDetailsService"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:text="De Antonio Barona Cuernavaca"
+                android:id="@+id/txtOriginService"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:text="Para UTEZ Emiliano Zapata"
+                android:id="@+id/txtDestinationService"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iniciar trayecto"
+            android:layout_margin="10dp"
+            android:visibility="visible"
+            android:layout_weight="5"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:padding="15dp"
+            android:gravity="center"
+            android:id="@+id/btnStartService"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelar servicio"
+            android:layout_weight="5"
+            android:layout_margin="10dp"
+            android:backgroundTint="#e63946"
+            android:visibility="visible"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+
+            android:padding="15dp"
+            android:gravity="center"
+            android:id="@+id/btnCancelService"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_weight="5"
+
+            android:text="Terminar trayecto"
+            android:layout_margin="10dp"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:padding="15dp"
+            android:gravity="center"
+            android:id="@+id/btnFinishService"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

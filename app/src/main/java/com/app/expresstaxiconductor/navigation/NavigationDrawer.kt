@@ -1,5 +1,6 @@
 package com.app.expresstaxiconductor.navigation
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -9,6 +10,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.app.expresstaxiconductor.LoginActivity
 import com.app.expresstaxiconductor.R
 import com.app.expresstaxiconductor.databinding.ActivityNavigationDrawerBinding
 
@@ -37,10 +39,19 @@ class NavigationDrawer : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+        navView.menu.findItem(R.id.nav_signOut).setOnMenuItemClickListener {
+            signOut()
+            true
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_navigation_drawer)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    private fun signOut(){
+        startActivity(Intent(applicationContext,LoginActivity::class.java))
+        finish()
     }
 }

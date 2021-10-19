@@ -7,6 +7,12 @@
 
         <item
             android:id="@+id/mapsFragment"
-            android:title="Mapa" />
+            android:icon="@drawable/ic_map"
+            android:title="Inicio" />
+
+        <item
+            android:id="@+id/nav_signOut"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="Cerrar sesión" />
     </group>
 </menu>

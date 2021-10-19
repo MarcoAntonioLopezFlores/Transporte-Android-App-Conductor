@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.fragment_maps.view.*
 import java.util.*
 import android.content.Intent
 import android.net.Uri
+import androidx.navigation.fragment.findNavController
 
 
 class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener{
@@ -44,7 +45,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
         }
 
         viewRoot.btnStartService.setOnClickListener{
-            loadNavigationView("18.8389033","-99.2395182")
+            //loadNavigationView("18.8389033","-99.2395182")
+            findNavController().navigate(R.id.detailsFragment)
         }
 
 
