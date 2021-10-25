@@ -1,21 +1,17 @@
 package com.app.expresstaxiconductor
 
 import android.Manifest
-import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import android.content.DialogInterface
-import android.provider.Settings
-import com.app.expresstaxiconductor.utils.LocationService
 
 
 class SplashScreen : AppCompatActivity() {
-    val REQUEST_LOCATION=0
+    private val REQUEST_LOCATION=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
@@ -27,7 +23,7 @@ class SplashScreen : AppCompatActivity() {
 
 
 
-    fun checkPermissions(){
+    private fun checkPermissions(){
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED
             || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
             requestPermission()
@@ -41,8 +37,8 @@ class SplashScreen : AppCompatActivity() {
         ActivityCompat.requestPermissions(
             this,
             arrayOf(
-                android.Manifest.permission.ACCESS_COARSE_LOCATION,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION
             ),
             REQUEST_LOCATION
         )
@@ -67,8 +63,8 @@ class SplashScreen : AppCompatActivity() {
         }
     }
 
-    fun launchSplashScreen(){
-        Handler().postDelayed(Runnable {
+    private fun launchSplashScreen(){
+        Handler().postDelayed({
 
             startActivity(Intent(this, LoginActivity::class.java))
             finish()

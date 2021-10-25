@@ -45,4 +45,20 @@
     <string name="ic_loc">ic_loc</string>
     <string name="accept_service">Confirmar servicio</string>
     <string name="ic_myloc">ic_myloc</string>
+    <string name="hint_send_message">Escribe un mensaje</string>
+    <string name="details_customer">Detalles del cliente</string>
+    <string name="img_customer">Imagen cliente</string>
+    <string name="name_customer">Marco</string>
+    <string name="lastname_customer">Lopez</string>
+    <string name="chat">Chat</string>
+    <string name="details_trip">Detalles del viaje</string>
+    <string name="from_service">De Antonio Barona Cuernavaca</string>
+    <string name="to_service">Para UTEZ Emiliano Zapata</string>
+    <string name="start_service">Iniciar trayecto</string>
+    <string name="cancel_service">Cancelar servicio</string>
+    <string name="finish_service">Terminar trayecto</string>
+    <string name="text_received_message">This is a received message</string>
+    <string name="text_sent_message">This is a sent message</string>
+    <string name="title_map">Inicio</string>
+    <string name="title_nav_signout">Cerrar sesión</string>
 </resources>

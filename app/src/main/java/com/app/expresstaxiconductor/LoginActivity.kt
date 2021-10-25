@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun getToken(){
+    private fun getToken(){
         FirebaseMessaging.getInstance().isAutoInitEnabled = true
 
         FirebaseMessaging.getInstance().token.
@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             val token = it.result
-            println("token -> "+token)
+            println("token -> $token")
         })
     }
 }

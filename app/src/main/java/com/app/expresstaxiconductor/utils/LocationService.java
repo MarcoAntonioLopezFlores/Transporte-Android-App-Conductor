@@ -27,13 +27,9 @@ public class LocationService extends Service {
 
         @Override
         public void onLocationChanged(@NonNull Location location) {
-            if (location != null) {
-                loc = location;
-                System.out.println("Latitud " + location.getLatitude());
-                System.out.println("Longitud " + location.getLongitude());
-            } else {
-                System.out.println("Mi ubicación es null");
-            }
+            loc = location;
+            System.out.println("Latitud " + location.getLatitude());
+            System.out.println("Longitud " + location.getLongitude());
 
             myLocation.set(location);
         }
@@ -76,8 +72,8 @@ public class LocationService extends Service {
     public void onDestroy() {
         super.onDestroy();
         if(locationManager != null){
-            for(int i = 0; i < mLocationListener.length; i++){
-                locationManager.removeUpdates(mLocationListener[i]);
+            for (LocationListener locationListener : mLocationListener) {
+                locationManager.removeUpdates(locationListener);
             }
         }
     }
