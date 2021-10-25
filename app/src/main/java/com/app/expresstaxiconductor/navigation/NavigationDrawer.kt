@@ -2,6 +2,7 @@ package com.app.expresstaxiconductor.navigation
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -14,7 +15,7 @@ import com.app.expresstaxiconductor.LoginActivity
 import com.app.expresstaxiconductor.R
 import com.app.expresstaxiconductor.databinding.ActivityNavigationDrawerBinding
 
-class NavigationDrawer : AppCompatActivity() {
+class NavigationDrawer : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityNavigationDrawerBinding
@@ -39,10 +40,7 @@ class NavigationDrawer : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        navView.menu.findItem(R.id.nav_signOut).setOnMenuItemClickListener {
-            signOut()
-            true
-        }
+        navView.setNavigationItemSelectedListener(this)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -53,5 +51,14 @@ class NavigationDrawer : AppCompatActivity() {
     private fun signOut(){
         startActivity(Intent(applicationContext,LoginActivity::class.java))
         finish()
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.nav_signOut->{
+                signOut()
+            }
+        }
+        return true
     }
 }

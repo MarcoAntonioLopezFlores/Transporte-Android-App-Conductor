@@ -1,18 +1,52 @@
 package com.app.expresstaxiconductor.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.app.expresstaxiconductor.R
+import com.app.expresstaxiconductor.navigation.NavigationDrawer
+import kotlinx.android.synthetic.main.fragment_details_driver.*
 import kotlinx.android.synthetic.main.fragment_details_driver.view.*
 
 
-class DetailsDriverFragment:Fragment() {
+class DetailsDriverFragment:AppCompatActivity() {
 
-    override fun onCreateView(
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.fragment_details_driver)
+        setSupportActionBar(findViewById(R.id.toolbarBackHome))
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Detalles del servicio"
+
+        btnChatService.setOnClickListener{
+            startActivity(Intent(this,ChatServiceFragment::class.java))
+        }
+
+        btnStartService.setOnClickListener{
+            btnStartService.visibility = View.GONE
+            btnFinishService.visibility = View.VISIBLE
+            btnCancelService.visibility = View.GONE
+            containerBtnChatService.visibility = View.VISIBLE
+        }
+
+        btnCancelService.setOnClickListener{
+            startActivity(Intent(this, NavigationDrawer::class.java))
+            finish()
+
+        }
+
+        btnFinishService.setOnClickListener{
+            startActivity(Intent(this, NavigationDrawer::class.java))
+            finish()
+        }
+    }
+    /*override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,7 +76,7 @@ class DetailsDriverFragment:Fragment() {
         }
 
         return viewRoot
-    }
+    }*/
 
 
 }

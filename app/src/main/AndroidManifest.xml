@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.app.expresstaxiconductor">
-
+    package="com.app.expresstaxiconductor" >
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -19,8 +18,18 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ExpressTaxiConductor.NoActionBar">
+        android:theme="@style/Theme.ExpressTaxiConductor.NoActionBar" >
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true"
+            android:theme="@style/Theme.ExpressTaxiConductor.NoActionBar"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -33,13 +42,25 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-
         <activity
             android:name=".AutoRegisterActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.ExpressTaxiConductor.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
             android:exported="true"
+            android:theme="@style/Theme.ExpressTaxiConductor.NoActionBar" />
+        <activity
+            android:name=".fragments.DetailsDriverFragment"
+            android:exported="true"
+            android:parentActivityName=".navigation.NavigationDrawer"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ExpressTaxiConductor.NoActionBar" />
+        <activity
+            android:name=".fragments.ChatServiceFragment"
+            android:exported="true"
+            android:parentActivityName=".fragments.DetailsDriverFragment"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.ExpressTaxiConductor.NoActionBar" />
         <activity
             android:name=".navigation.NavigationDrawer"
@@ -47,18 +68,14 @@
             android:theme="@style/Theme.ExpressTaxiConductor.NoActionBar" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true" >
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <service android:name=".utils.LocationService" />
         <service
             android:name=".utils.MyFirebaseMessagingService"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -66,7 +83,7 @@
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:value="@mipmap/ic_launcher" />
+            android:value="@mipmap/ic_launcher_foreground" />
         <meta-data
             android:name="firebase_messaging_auto_init_enabled"
             android:value="false" />

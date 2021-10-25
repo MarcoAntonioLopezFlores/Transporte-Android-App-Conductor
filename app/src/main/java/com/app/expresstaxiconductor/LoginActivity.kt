@@ -27,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
             getToken()
             startService(Intent(this, LocationService::class.java))
             startActivity(Intent(this, NavigationDrawer::class.java))
+            finish()
         }
     }
 

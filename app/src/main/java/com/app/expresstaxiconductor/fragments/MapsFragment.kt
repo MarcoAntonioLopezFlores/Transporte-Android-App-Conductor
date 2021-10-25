@@ -33,8 +33,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val viewRoot = inflater.inflate(R.layout.fragment_maps, container, false)
 
+        val viewRoot = inflater.inflate(R.layout.fragment_maps, container, false)
         viewRoot.btnCenterLocalization.setOnClickListener {
             val punto = LatLng(
                 LocationService.loc.latitude,
@@ -46,7 +46,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
 
         viewRoot.btnStartService.setOnClickListener{
             //loadNavigationView("18.8389033","-99.2395182")
-            findNavController().navigate(R.id.detailsFragment)
+            //findNavController().navigate(R.id.detailsFragment)
+            startActivity(Intent(context,DetailsDriverFragment::class.java))
         }
 
 
