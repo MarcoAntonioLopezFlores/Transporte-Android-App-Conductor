@@ -4,60 +4,53 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.BaseAdapter
 import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import com.app.expresstaxiconductor.R
 import com.app.expresstaxiconductor.models.Message
+import com.app.expresstaxiconductor.preferences.PrefsApplication
 
-class MessageAdapter(val context:Context, private val messageList: List<Message>):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MessageAdapter(context:Context, var messages: ArrayList<Message>): BaseAdapter() {
+    var context = context
 
-    private val ITEM_RECEIVED=1
-    private val ITEM_SENT=2
+    fun add(message:Message){
+        messages.add(message)
+    }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun getCount(): Int {
+        return messages.size
+    }
 
-        return if(viewType==1){
-            val view:View = LayoutInflater.from(context).inflate(R.layout.received_message_item,parent, false)
-            ReceiveViewHolder(view)
+    override fun getItem(p0: Int): Any {
+        return  messages[p0]
+    }
+
+    override fun getItemId(p0: Int): Long {
+        return  0
+    }
+
+    override fun getView(position: Int, view: View?,viewGroup:ViewGroup?): View {
+        var holder=MessageViewHolder()
+        var myView = view
+
+        var messageInflater = LayoutInflater.from(context)
+        var message = messages[position].descripcion
+        if(messages[position].usuario.id == PrefsApplication.prefs.getData("user_id").toLong()){
+            myView = messageInflater.inflate(R.layout.sent_message_item, null)
+            holder.textMessage = myView.findViewById(R.id.txtMessageSent)
+
+            holder.textMessage!!.text = message
         }else{
-            val view:View = LayoutInflater.from(context).inflate(R.layout.sent_message_item,parent, false)
-            SentViewHolder(view)
+            myView = messageInflater.inflate(R.layout.received_message_item, null)
+            holder.textMessage = myView.findViewById(R.id.txtMessageReceived)
+
+            holder.textMessage!!.text = message
         }
-    }
 
-    override fun onBindViewHolder(
-        holder: RecyclerView.ViewHolder,
-        position: Int
-    ) {
-        val currentMessage = messageList[position]
-        if(holder.javaClass == SentViewHolder::class.java){
-            holder as SentViewHolder
-            holder.sentMessage.text = currentMessage.content
-        }else{
-            holder as ReceiveViewHolder
-            holder.receivedMessage.text = currentMessage.content
-        }
+        return  myView
     }
+}
 
-    override fun getItemViewType(position: Int): Int {
-        val currentMessage = messageList[position]
-
-        return if(1==currentMessage.senderId){
-            ITEM_SENT
-        }else{
-            ITEM_RECEIVED
-        }
-    }
-
-    override fun getItemCount(): Int {
-        return messageList.size
-    }
-
-    class SentViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
-        val sentMessage: TextView = itemView.findViewById(R.id.txtMessageSent)
-    }
-
-    class ReceiveViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
-        val receivedMessage: TextView = itemView.findViewById(R.id.txtMessageReceived)
-    }
+internal class MessageViewHolder{
+    var textMessage:TextView?=null
 }

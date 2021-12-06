@@ -2,10 +2,9 @@ package com.app.expresstaxiconductor.models
 
 import java.util.*
 
-data class Message(
+data class Cliente(
     val id: Long?,
-    val descripcion: String,
     val fechaRegistro: Date?,
     val usuario: Usuario,
-    val servicio: Servicio
+    val localizacion: Localizacion
 )

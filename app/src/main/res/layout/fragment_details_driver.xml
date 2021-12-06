@@ -82,28 +82,28 @@
                     android:id="@+id/txtLastnameCustomer"/>
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:id="@+id/containerBtnChatService"
-                android:layout_weight="6"
-                android:visibility="gone"
-                android:orientation="vertical">
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    app:iconGravity="textTop"
-                    app:icon="@drawable/ic_menu_send"
-                    android:text="@string/chat"
-                    android:visibility="visible"
-                    android:layout_weight="5"
-                    android:gravity="center"
-                    android:textSize="10sp"
-                    android:id="@+id/btnChatService"
-                    tools:ignore="NestedWeights,SmallSp" />
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:gravity="center"-->
+<!--                android:id="@+id/containerBtnChatService"-->
+<!--                android:layout_weight="6"-->
+<!--                android:visibility="visible"-->
+<!--                android:orientation="vertical">-->
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="0dp"-->
+<!--                    app:iconGravity="textTop"-->
+<!--                    app:icon="@drawable/ic_menu_send"-->
+<!--                    android:text="@string/chat"-->
+<!--                    android:visibility="visible"-->
+<!--                    android:layout_weight="5"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textSize="10sp"-->
+<!--                    android:id="@+id/btnChatService"-->
+<!--                    tools:ignore="NestedWeights,SmallSp" />-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
         </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -156,6 +156,41 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:id="@+id/containerBtnChat"
+            android:layout_weight="6"
+            android:visibility="visible"
+            android:orientation="horizontal">
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:iconGravity="textTop"
+                app:icon="@drawable/ic_menu_send"
+                android:text="@string/chat"
+                android:visibility="visible"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:layout_margin="8dp"
+                android:textSize="10sp"
+                android:id="@+id/btnChat"
+                tools:ignore="NestedWeights,SmallSp" />
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/llegue"
+                android:layout_margin="10dp"
+                android:visibility="visible"
+                android:layout_weight="5"
+                android:layout_marginTop="30dp"
+                android:textSize="20sp"
+                android:padding="15dp"
+                android:gravity="center"
+                android:id="@+id/btnLlegue"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
         <com.google.android.material.button.MaterialButton
@@ -163,7 +198,7 @@
             android:layout_height="wrap_content"
             android:text="@string/start_service"
             android:layout_margin="10dp"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_weight="5"
             android:layout_marginTop="30dp"
             android:textSize="20sp"
@@ -177,7 +212,7 @@
             android:layout_weight="5"
             android:layout_margin="10dp"
             android:backgroundTint="#e63946"
-            android:visibility="visible"
+            android:visibility="gone"
             android:layout_marginTop="30dp"
             android:textSize="20sp"
 
