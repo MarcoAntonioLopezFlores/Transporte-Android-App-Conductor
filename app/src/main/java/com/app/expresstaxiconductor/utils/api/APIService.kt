@@ -26,6 +26,10 @@ interface APIService {
     @Headers("Content-Type: application/json")
     fun asignarConductor(@Header("Authorization") token: String, @Body servicio: Servicio): Call<Servicio>
 
+    @PUT("conductor/actualizarLocalizacion")
+    @Headers("Content-Type: application/json")
+    fun actualizarUbicacion(@Header("Authorization") token: String, @Body conductor: Conductor): Call<Conductor>
+
     @PUT("servicio/cambiarEstado")
     @Headers("Content-Type: application/json")
     fun cambiarEstado(@Header("Authorization") token: String, @Body servicio: Servicio): Call<Servicio>

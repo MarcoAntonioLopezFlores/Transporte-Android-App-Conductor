@@ -6,10 +6,22 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.location.Location
 import android.os.*
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.app.expresstaxiconductor.fragments.DetailsDriverFragment
+import com.app.expresstaxiconductor.models.Conductor
+import com.app.expresstaxiconductor.models.Localizacion
+import com.app.expresstaxiconductor.models.Servicio
+import com.app.expresstaxiconductor.models.Usuario
 import com.app.expresstaxiconductor.navigation.NavigationDrawer
+import com.app.expresstaxiconductor.preferences.PrefsApplication
+import com.app.expresstaxiconductor.utils.api.APIService
+import com.app.expresstaxiconductor.utils.api.RetrofitClient
 import com.google.android.gms.location.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class LocationUpdatesService: Service() {
@@ -30,6 +42,38 @@ class LocationUpdatesService: Service() {
         mLocationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {
                 super.onLocationResult(locationResult)
+                if(loc!=null){
+                    println("companion latitud: "+loc!!.latitude)
+                    val apiService: APIService = RetrofitClient.getAPIService()
+
+                    try{
+                        val conductor = Conductor(0, null, null,
+                            Usuario(PrefsApplication.prefs.getData("user_id").toLong(), "", "", "","","","","",true, null),
+                            Localizacion(0, loc!!.longitude,loc!!.latitude)
+                        )
+                        val TOKEN = "Bearer ${PrefsApplication.prefs.getData("token")}"
+                        apiService.actualizarUbicacion(TOKEN, conductor).enqueue(object:
+                            Callback<Conductor> {
+                            override fun onResponse(call: Call<Conductor>, response: Response<Conductor>) {
+                                if(response.isSuccessful){
+                                    var conductor = response.body() as Conductor
+                                    println("latitud conductor registrada: "+conductor.localizacion!!.latitud)
+                                    println("Se actualizo la ubicacion")
+
+                                }
+                            }
+
+                            override fun onFailure(call: Call<Conductor>, t: Throwable) {
+                                println("ERROR al actualizar ubicacion")
+                            }
+
+                        })
+                    }catch (e:Exception){
+
+                    }
+
+                }
+
                 onNewLocation(locationResult.lastLocation)
             }
         }

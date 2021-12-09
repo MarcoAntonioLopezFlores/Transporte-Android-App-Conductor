@@ -61,10 +61,10 @@ public class LocationService extends Service {
             return;
         }
         locationManager.requestLocationUpdates(
-                LocationManager.GPS_PROVIDER, 1000, 0, mLocationListener[1]
+                LocationManager.GPS_PROVIDER, 2000, 0, mLocationListener[1]
         );
         locationManager.requestLocationUpdates(
-                LocationManager.NETWORK_PROVIDER, 1000, 0, mLocationListener[0]
+                LocationManager.NETWORK_PROVIDER, 2000, 0, mLocationListener[0]
         );
     }
 
