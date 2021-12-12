@@ -97,6 +97,8 @@ class DetailsDriverFragment:AppCompatActivity() {
         override fun onReceive(context: Context?, intent: Intent?) {
             if(intent != null){
                 PrefsApplication.prefs.save("avance", intent.getStringExtra("avance").toString())
+                finish()
+                startActivity(getIntent())
             }
 //            containerBtnChatService.visibility = View.VISIBLE
         }

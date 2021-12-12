@@ -14,6 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
@@ -72,7 +73,10 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
 
     val broadcast = object: BroadcastReceiver(){
         override fun onReceive(context: Context?, intent: Intent?) {
-
+//            val mapsFragment: Fragment = MapsFragment()
+//            val fragmentTransaction = fragmentManager?.beginTransaction()
+//            fragmentTransaction?.replace(R.id.nav_host_fragment_content_navigation_drawer, mapsFragment)
+//            fragmentTransaction?.commit()
         }
     }
 
@@ -167,6 +171,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
         if(PrefsApplication.prefs.getData("servicio_id").isNotEmpty()){
             btnStartService.visibility = View.VISIBLE
             consultar()
+        }else{
+            btnStartService.visibility = View.GONE
         }
     }
 

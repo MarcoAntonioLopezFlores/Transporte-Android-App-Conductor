@@ -114,6 +114,11 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                 "broadcast_default"
             }
         }
+
+        if(filtro == "broadcast_default"){
+            PrefsApplication.prefs.delete("servicio_id")
+        }
+
         val intent = Intent(filtro)
         intent.putExtra("id", id.toString())
         intent.putExtra("filtro", filtro)

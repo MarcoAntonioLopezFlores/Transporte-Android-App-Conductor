@@ -212,7 +212,7 @@
             android:layout_weight="5"
             android:layout_margin="10dp"
             android:backgroundTint="#e63946"
-            android:visibility="gone"
+            android:visibility="visible"
             android:layout_marginTop="30dp"
             android:textSize="20sp"
 
