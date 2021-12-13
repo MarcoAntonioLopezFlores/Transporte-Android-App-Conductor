@@ -48,7 +48,7 @@ class LocationUpdatesService: Service() {
 
                     try{
                         val conductor = Conductor(0, null, null,
-                            Usuario(PrefsApplication.prefs.getData("user_id").toLong(), "", "", "","","","","",true, null),
+                            Usuario(PrefsApplication.prefs.getData("user_id").toLong(), "", "", "","","","","",true, null, null),
                             Localizacion(0, loc!!.longitude,loc!!.latitude)
                         )
                         val TOKEN = "Bearer ${PrefsApplication.prefs.getData("token")}"
@@ -56,7 +56,7 @@ class LocationUpdatesService: Service() {
                             Callback<Conductor> {
                             override fun onResponse(call: Call<Conductor>, response: Response<Conductor>) {
                                 if(response.isSuccessful){
-                                    var conductor = response.body() as Conductor
+                                    val conductor = response.body() as Conductor
                                     println("latitud conductor registrada: "+conductor.localizacion!!.latitud)
                                     println("Se actualizo la ubicacion")
 

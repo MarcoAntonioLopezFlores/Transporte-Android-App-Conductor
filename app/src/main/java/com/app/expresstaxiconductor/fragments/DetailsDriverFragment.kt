@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.app.expresstaxiconductor.LoginActivity
 import com.app.expresstaxiconductor.R
 import com.app.expresstaxiconductor.models.Datos
 import com.app.expresstaxiconductor.models.Estado
@@ -41,7 +42,10 @@ class DetailsDriverFragment:AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Detalles del servicio"
 
-        obtenerSevicio()
+        if(PrefsApplication.prefs.getData("correo").isEmpty()){
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
 
 //        btnChatService.setOnClickListener{
 //            startActivity(Intent(this,ChatServiceFragment::class.java))
@@ -72,12 +76,14 @@ class DetailsDriverFragment:AppCompatActivity() {
 
         when (avance) {
             "Llegada" -> {
+                obtenerSevicio()
                 btnStartService.visibility = View.VISIBLE
                 btnChat.visibility = View.GONE
                 btnLlegue.visibility = View.GONE
                 btnCancelService.visibility = View.VISIBLE
             }
             "Inicio" -> {
+                obtenerSevicio()
                 btnStartService.visibility = View.GONE
                 btnFinishService.visibility = View.VISIBLE
                 btnCancelService.visibility = View.GONE
@@ -90,7 +96,11 @@ class DetailsDriverFragment:AppCompatActivity() {
             "Finalizar" -> {
                 finalizar()
             }
+            else -> {
+                obtenerSevicio()
+            }
         }
+
     }
 
     private val broadcast = object: BroadcastReceiver(){
@@ -128,6 +138,7 @@ class DetailsDriverFragment:AppCompatActivity() {
         PrefsApplication.prefs.delete("is_service")
         PrefsApplication.prefs.delete("servicio_id")
         PrefsApplication.prefs.delete("avance")
+        PrefsApplication.prefs.delete("tokenclientfb")
         finish()
     }
 
@@ -252,6 +263,7 @@ class DetailsDriverFragment:AppCompatActivity() {
         PrefsApplication.prefs.delete("is_service")
         PrefsApplication.prefs.delete("avance")
         PrefsApplication.prefs.delete("servicio_id")
+        PrefsApplication.prefs.delete("tokenclientfb")
     }
 
     /*override fun onCreateView(

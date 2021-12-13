@@ -10,9 +10,9 @@ interface APIService {
     @Headers("Content-Type: application/json")
     fun login(@Body auth: Auth): Call<JwtResponse>
 
-    @POST("auth/token")
+    @POST("auth/actualizarToken")
     @Headers("Content-Type: application/json")
-    fun registrarToken(@Body token: Token): Call<Token>
+    fun registrarToken(@Body usuarioRead: UsuarioRead): Call<UsuarioRead>
 
     @POST("conductor/registrar")
     @Headers("Content-Type: application/json")

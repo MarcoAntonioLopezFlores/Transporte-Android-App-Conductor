@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import com.app.expresstaxiconductor.LoginActivity
 import com.app.expresstaxiconductor.R
 import com.app.expresstaxiconductor.models.*
 import com.app.expresstaxiconductor.preferences.PrefsApplication
@@ -42,7 +43,9 @@ import java.util.*
 class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener{
     private lateinit var mMap: GoogleMap
     private val FILTRO_CHAT = "broadcast_servicio"
+    private val FILTRO_DEFAULT = "broadcast_default"
     private val KEY = "AAAADYblWbE:APA91bF3zj6eBR1Hbl75OTVMd_k7dnR4znuw2BiNxY0iKrKRrP0ZNxnlDevqSbWeAdYmoyU-KJ8F3CKuFEB6CeDykvzDNe_P_JByhLl792zh40pcZXYzL--uPoJrSOI8MtdpUKcECVK2"
+    private val avance = if(PrefsApplication.prefs.getData("avance").isNotEmpty()) PrefsApplication.prefs.getData("avance") else ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -66,7 +69,12 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
             asignarConductor()
         }
 
+        if(PrefsApplication.prefs.getData("correo").isEmpty()){
+            startActivity(Intent(context, LoginActivity::class.java))
+        }
+
         LocalBroadcastManager.getInstance(requireContext()).registerReceiver(broadcast, IntentFilter(FILTRO_CHAT))
+        LocalBroadcastManager.getInstance(requireContext()).registerReceiver(broadcastDefault, IntentFilter(FILTRO_DEFAULT))
 
         return viewRoot
     }
@@ -75,9 +83,33 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
         override fun onReceive(context: Context?, intent: Intent?) {
 //            val mapsFragment: Fragment = MapsFragment()
 //            val fragmentTransaction = fragmentManager?.beginTransaction()
+////                fragmentTransaction?.replace(R.id.nav_host_fragment_content_navigation_drawer, mapsFragment)
+//            fragmentTransaction?.detach(mapsFragment)
+//            fragmentTransaction?.attach(mapsFragment)
+//            fragmentTransaction?.commit()
+//            val mapsFragment: Fragment = MapsFragment()
+//            val fragmentTransaction = fragmentManager?.beginTransaction()
 //            fragmentTransaction?.replace(R.id.nav_host_fragment_content_navigation_drawer, mapsFragment)
 //            fragmentTransaction?.commit()
         }
+    }
+
+    val broadcastDefault = object: BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            if(intent != null){
+                PrefsApplication.prefs.save("avance", intent.getStringExtra("avance").toString())
+                if(intent.getStringExtra("avance") == "Cancelar"){
+                    PrefsApplication.prefs.delete("servicio_id")
+                }
+//                val mapsFragment: Fragment = MapsFragment()
+//                val fragmentTransaction = fragmentManager?.beginTransaction()
+////                fragmentTransaction?.replace(R.id.nav_host_fragment_content_navigation_drawer, mapsFragment)
+//                fragmentTransaction?.detach(mapsFragment)
+//                fragmentTransaction?.attach(mapsFragment)
+//                fragmentTransaction?.commit()
+            }
+        }
+
     }
 
     fun consultar() {
@@ -103,7 +135,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
     fun asignarConductor(){
         val apiService: APIService = RetrofitClient.getAPIService()
 
-        val conductor = Conductor(0, null, null, Usuario(PrefsApplication.prefs.getData("user_id").toLong(), "", "", "","","","","",true, null), null)
+        val conductor = Conductor(0, null, null, Usuario(PrefsApplication.prefs.getData("user_id").toLong(), "", "", "","","","","",true, null, null), null)
         val servicio = Servicio(PrefsApplication.prefs.getData("servicio_id").toLong(), null, 0f, 0.0,0.0,0.0,0.0,null, null, conductor)
         val TOKEN = "Bearer ${PrefsApplication.prefs.getData("token")}"
 
@@ -112,6 +144,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
                 if(response.isSuccessful){
                     val servicio = response.body() as Servicio
                     //cambiarEstado(servicio)
+                    PrefsApplication.prefs.save("tokenclientfb", servicio.cliente!!.usuario.tokenfb!!)
                     enviarNotificacion(servicio)
                     PrefsApplication.prefs.save("servicio_id", servicio.id.toString())
                     PrefsApplication.prefs.save("is_service", "true")

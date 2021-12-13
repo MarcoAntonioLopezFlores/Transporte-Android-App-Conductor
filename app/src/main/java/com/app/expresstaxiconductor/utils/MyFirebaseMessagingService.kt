@@ -115,10 +115,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             }
         }
 
-        if(tipo == "Cancelar"){
-            PrefsApplication.prefs.delete("servicio_id")
-        }
-
         val intent = Intent(filtro)
         intent.putExtra("id", id.toString())
         intent.putExtra("filtro", filtro)
