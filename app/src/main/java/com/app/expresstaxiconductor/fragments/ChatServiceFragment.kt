@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.app.expresstaxiconductor.LoginActivity
 import com.app.expresstaxiconductor.R
 import com.app.expresstaxiconductor.adapters.MessageAdapter
 import com.app.expresstaxiconductor.models.*
@@ -38,6 +39,11 @@ class ChatServiceFragment : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbarBackDetails))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = "Chat"
+
+        if(PrefsApplication.prefs.getData("correo").isEmpty()){
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
 
 //        messageList.add(Message("Hola","A12S3X",1))
 //        messageList.add(Message("Adios","xaxaxa",2))
@@ -69,7 +75,7 @@ class ChatServiceFragment : AppCompatActivity() {
         val idServicio = PrefsApplication.prefs.getData("servicio_id").toLong()
         val correo = PrefsApplication.prefs.getData("correo")
 
-        val usuario = Usuario(idUsuario, "","",correo, "","","","",true, Rol(null, "",""))
+        val usuario = Usuario(idUsuario, "","",correo, "","","","",true, Rol(null, "",""), null)
         val servicio = Servicio(idServicio, null, null, 0.0, 0.0, 0.0, 0.0, null, null, null)
         val TOKEN = "Bearer ${PrefsApplication.prefs.getData("token")}"
 

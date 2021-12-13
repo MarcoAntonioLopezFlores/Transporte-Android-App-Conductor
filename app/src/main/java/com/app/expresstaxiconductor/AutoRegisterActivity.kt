@@ -35,7 +35,7 @@ class AutoRegisterActivity : AppCompatActivity() {
 
                 val rol = Rol(null,"","")
                 val usuario = Usuario(null, intent.getStringExtra("password").toString(), intent.getStringExtra("phone").toString(), intent.getStringExtra("email").toString(),
-                    intent.getStringExtra("name").toString(), apellidoP, apellidoM, "", true, rol)
+                    intent.getStringExtra("name").toString(), apellidoP, apellidoM, "", true, rol, null)
                 val localizacion = Localizacion(null, 0.0, 0.0)
                 val vehiculo = Vehiculo(null, edtPlacasAuto.text.toString(), edtColorAuto.text.toString(), true, edtModelAuto.text.toString(), edtBrandAuto.text.toString())
 

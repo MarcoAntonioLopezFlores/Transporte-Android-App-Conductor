@@ -10,5 +10,6 @@ data class Usuario(
     val apellidoMaterno: String,
     val foto: String,
     val enabled: Boolean,
-    val rol: Rol?
+    val rol: Rol?,
+    val tokenfb: String?
 )
