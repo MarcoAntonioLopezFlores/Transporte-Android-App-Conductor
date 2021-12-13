@@ -11,8 +11,14 @@
             android:title="@string/title_map" />
 
         <item
+            android:id="@+id/aboutFragment"
+            android:icon="@drawable/ic_baseline_info_24"
+            android:title="@string/about" />
+
+        <item
             android:id="@+id/nav_signOut"
             android:icon="@drawable/ic_exit_to_app_black_24dp"
             android:title="@string/title_nav_signout" />
+
     </group>
 </menu>

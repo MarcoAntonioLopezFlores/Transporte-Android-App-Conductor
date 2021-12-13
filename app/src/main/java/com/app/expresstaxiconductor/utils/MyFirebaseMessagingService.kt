@@ -115,7 +115,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             }
         }
 
-        if(filtro == "broadcast_default"){
+        if(tipo == "Cancelar"){
             PrefsApplication.prefs.delete("servicio_id")
         }
 

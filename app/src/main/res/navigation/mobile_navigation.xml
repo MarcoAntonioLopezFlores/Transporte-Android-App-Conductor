@@ -33,5 +33,10 @@
             android:id="@+id/action_detailsFragment_to_chatServiceFragment"
             app:destination="@id/chatServiceFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.app.expresstaxiconductor.AboutFragment"
+        android:label="@string/about"
+        tools:layout="@layout/fragment_about" />
 
 </navigation>

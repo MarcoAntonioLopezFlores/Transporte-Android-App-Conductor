@@ -63,4 +63,10 @@
     <string name="title_map">Inicio</string>
     <string name="title_nav_signout">Cerrar sesión</string>
     <string name="default_notification_channel_id">om.app.expresstaxi.channel</string>
+    <string name="version">Versión 1.0.0</string>
+    <string name="copy_right">© 2021 Developers UTEZ</string>
+    <string name="about">Acerca de</string>
+    <string name="description">App que permite a las personas solicitar un conductor para llegar a su destino deseado, asimismo, a las personas que disponen de un coche les permite ofrecer el servicio de chofer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
