@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
 
         if(PrefsApplication.prefs.getData("correo").isNotEmpty()){
             getToken()
-            //startService(Intent(this, LocationService::class.java))
+            startService(Intent(this, LocationService::class.java))
             startActivity(Intent(this, NavigationDrawer::class.java))
             finish()
         }
@@ -112,7 +112,7 @@ class LoginActivity : AppCompatActivity() {
                 PrefsApplication.prefs.save("rol", usuario.rol)
 
                 getToken()
-                //startService(Intent(this, LocationService::class.java))
+                startService(Intent(this, LocationService::class.java))
                 startActivity(Intent(this, NavigationDrawer::class.java))
                 finish()
             }else{
